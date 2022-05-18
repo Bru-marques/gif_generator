@@ -6,7 +6,7 @@ A flutter app integrated with [Giphy](https://developers.giphy.com/) API.
 
 Resources used in this project:
 
-- [GIPH Developers](https://developers.giphy.com/)
+- [GIPHY Developers](https://developers.giphy.com/)
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,

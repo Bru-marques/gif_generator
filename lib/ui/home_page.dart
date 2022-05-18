@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:gif_generator/ui/gif_page.dart';
 import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
@@ -122,9 +123,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _searchBar() {
-    return const TextField(
-      style: TextStyle(color: Color.fromARGB(255, 234, 234, 234)),
-      decoration: InputDecoration(
+    return TextField(
+      onSubmitted: (text) {
+        setState(() {
+          _search = text;
+        });
+      },
+      style: const TextStyle(color: Color.fromARGB(255, 234, 234, 234)),
+      decoration: const InputDecoration(
         prefixIcon: Icon(
           Icons.search_rounded,
           color: Color.fromARGB(182, 234, 234, 234),
@@ -135,7 +141,7 @@ class _HomePageState extends State<HomePage> {
           fontSize: 14,
           fontStyle: FontStyle.italic,
         ),
-        labelStyle: TextStyle(color: Color.fromARGB(255, 234, 234, 234)),
+        labelStyle: TextStyle(color: const Color.fromARGB(255, 234, 234, 234)),
         border: OutlineInputBorder(
           borderSide: BorderSide.none,
         ),
@@ -154,12 +160,18 @@ class _HomePageState extends State<HomePage> {
       itemCount: snapshot.data["data"].length,
       itemBuilder: (context, int index) {
         return GestureDetector(
-          child: Image.network(
-            snapshot.data["data"][index]["images"]["fixed_height"]["url"],
-            height: 300,
-            fit: BoxFit.cover,
-          ),
-        );
+            child: Image.network(
+              snapshot.data["data"][index]["images"]["fixed_height"]["url"],
+              height: 300,
+              fit: BoxFit.cover,
+            ),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          GifPage(snapshot.data["data"][index])));
+            });
       },
     );
   }
