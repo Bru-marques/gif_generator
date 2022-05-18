@@ -2,6 +2,13 @@
 
 A flutter app integrated with [Giphy](https://developers.giphy.com/) API.
 
+
+<p align="center">
+  <img alt="HomePage" src="https://github.com/Bru-marques/git_generator/blob/main/assets/screenshot_home.png" width="300px">
+  <img alt="GifPage" src="https://github.com/Bru-marques/git_generator/blob/main/assets/screenshot_gif.png" width="300px">
+
+</p>
+
 ## Getting Started
 
 Resources used in this project:
